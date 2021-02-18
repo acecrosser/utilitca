@@ -1,5 +1,9 @@
 # Утилита внедрения
 
+[![Build version](https://img.shields.io/badge/version-1.0-red)]()
+[![Python version](https://img.shields.io/badge/Python-3.8-green)]()
+[![PySide version](https://img.shields.io/badge/PySide-2-blue)]()
+
 **Что умеет:**
 - Заполнять заявку, реестр и автоматические открывать его в exel (остается только отправить на печать);
 - Создавать письмо и прикладывать к нему заполненный реестр.
