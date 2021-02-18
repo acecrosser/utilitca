@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>393</width>
+    <height>610</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>393</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>393</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Утилита внедрения</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="ico">
+    <normaloff>../util_ico.png</normaloff>
+    <normalon>../util_ico.png</normalon>../util_ico.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>293</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="modelColumn">
+     <number>0</number>
+    </property>
+    <item>
+     <property name="text">
+      <string comment="first_">Регистрация и фискализация одной единицы ККТ</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Комплексная настройка Контур.Маркета</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Настройка Контур.Маркета</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Перерегистрация ККТ без замены  ФН</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Перерегистрация ККТ с заменой  ФН</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Снятие с учета ККТ</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Прошивка ККТ</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Пустой бланк</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="serial_fn">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>463</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="serial_kkt">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>409</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_kkt_serial">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>386</y>
+      <width>132</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Заводской номер ККТ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_kkt">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>332</y>
+      <width>74</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Модель ККТ</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="model_kkt">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>355</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>494</y>
+      <width>100</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ФИО Внедренца</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="spec_name">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>517</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_fn">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>440</y>
+      <width>129</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Заводcкой номер ФН</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_kpp">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>119</y>
+      <width>26</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>КПП</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="name_company">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>34</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>37</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>370</width>
+      <height>0</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="kpp_company">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>142</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_address">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>227</y>
+      <width>38</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Адрес</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="address_work">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>250</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_inn">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>65</y>
+      <width>27</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ИНН</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="number_bill">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>196</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_bill">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>173</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>№ счета</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inn_company">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>88</y>
+      <width>370</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_company">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>92</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Наименование </string>
+    </property>
+   </widget>
+   <widget class="QSplitter" name="splitter">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>560</y>
+      <width>370</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <widget class="QPushButton" name="printReestr">
+     <property name="text">
+      <string>Печать реестра</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="makeEmail">
+     <property name="text">
+      <string>Создать письмо</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="printRequest">
+     <property name="text">
+      <string>Печать заявки</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
