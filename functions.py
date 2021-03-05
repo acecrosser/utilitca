@@ -1,5 +1,6 @@
 import openpyxl
 import os
+import requests
 
 data_type = {
     'complex': ['complex.xlsx', 'complex', 'H27'],
@@ -11,7 +12,7 @@ data_type = {
     'blank': ['blank.xlsx', 'blank', 'H23']
 }
 
-data_path = f'{os.path.abspath("")}' + f'\\data\\'
+data_path = f'{os.path.abspath("")}' + '\\data\\'
 
 
 def fiscal_and_reg(spec_name, **kwargs):
@@ -48,4 +49,4 @@ def make_mail(filename):
     body = []
     for line in text_file:
         body.append(line)
-    os.system(f'start outlook.exe /a {file_path} /c ipm.note /m " ?{body[0][:-1]}&{body[1]}"')
+    os.system(f'start outlook.exe /a "{file_path}" /c ipm.note /m " ?{body[0][:-1]}&{body[1]}"')

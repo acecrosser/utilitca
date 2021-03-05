@@ -28,7 +28,7 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
         self.printRequest.clicked.connect(self.make_request_report)
         self.makeEmail.clicked.connect(self.send_mail)
 
-    def make_registry_report(self):
+    def make_data(self):
         d_name_company = self.name_company.text()
         d_address_work = self.address_work.text()
         d_inn_company = self.inn_company.text()
@@ -53,33 +53,42 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
             'H5': d_serial_fn,
         }
 
+        request_data = {
+             'B1': datetime.now().strftime('%d.%m.%Y'),
+             'E1': f'{d_inn_company}-{d_kpp_company}',
+             'E2': d_name_company,
+             'E4': d_number_bill,
+             'E13': d_model_kkt,
+             'E14': d_serial_kkt,
+             'E15': d_serial_fn,
+        }
+
+        return {
+            'data': registry_data,
+            'request_data': request_data,
+            'item': combobox_item,
+            'name': spec_name,
+        }
+
+    def make_registry_report(self):
+
+        combobox_item = self.make_data()['item']
+        spec_name = self.make_data()['name']
+        registry_data = self.make_data()['data']
+
         if combobox_item == 'fiscal':
             fiscal_and_reg(spec_name, **registry_data)
-            os.system(f'start excel.exe {data_path}fiscal.xlsx')
+            os.system(f'start excel.exe "{data_path}fiscal.xlsx"')
         else:
             complex_settings(spec_name, data_type[combobox_item][0], *data_type[combobox_item], **registry_data)
-            os.system(f'start excel.exe {data_path}{data_type[combobox_item][0]}')
+            os.system(f'start excel.exe "{data_path}{data_type[combobox_item][0]}"')
 
     def make_request_report(self):
-        d_name_company = self.name_company.text()
-        d_inn_company = self.inn_company.text()
-        d_kpp_company = self.kpp_company.text()
-        d_number_bill = self.number_bill.text()
         d_model_kkt = self.model_kkt.text()
         d_serial_kkt = self.serial_kkt.text()
-        d_serial_fn = self.serial_fn.text()
 
-        combobox_item = self.comboBox.currentData()
-
-        request_data = {
-            'B1': datetime.now().strftime('%d.%m.%Y'),
-            'E1': f'{d_inn_company}-{d_kpp_company}',
-            'E2': d_name_company,
-            'E4': d_number_bill,
-            'E13': d_model_kkt,
-            'E14': d_serial_kkt,
-            'E15': d_serial_fn,
-        }
+        combobox_item = self.make_data()['item']
+        request_data = self.make_data()['request_data']
 
         if combobox_item == 'update':
             request_data.pop('E13')
@@ -88,35 +97,16 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
             request_data.update({'E9': d_model_kkt})
             request_data.update({'E10': d_serial_kkt})
             request_for_work('request_online.xlsx', **request_data)
-            os.system(f'start excel.exe {data_path}request_online.xlsx')
+            os.system(f'start excel.exe "{data_path}request_online.xlsx"')
         else:
             request_for_work('request.xlsx', **request_data)
-            os.system(f'start excel.exe {data_path}request.xlsx')
+            os.system(f'start excel.exe "{data_path}request.xlsx"')
 
     def send_mail(self):
-        d_name_company = self.name_company.text()
-        d_address_work = self.address_work.text()
-        d_inn_company = self.inn_company.text()
-        d_kpp_company = self.kpp_company.text()
-        d_number_bill = self.number_bill.text()
-        d_model_kkt = self.model_kkt.text()
-        d_serial_kkt = self.serial_kkt.text()
-        d_serial_fn = self.serial_fn.text()
-        spec_name = self.spec_name.text()
 
-        combobox_item = self.comboBox.currentData()
-
-        registry_data = {
-            'C1': datetime.now().strftime('%d.%m.%Y'),
-            'C2': d_name_company,
-            'C3': d_address_work,
-            'C5': d_inn_company,
-            'C6': d_kpp_company,
-            'C7': d_number_bill,
-            'H2': d_model_kkt,
-            'H3': d_serial_kkt,
-            'H5': d_serial_fn,
-        }
+        combobox_item = self.make_data()['item']
+        spec_name = self.make_data()['name']
+        registry_data = self.make_data()['data']
 
         if combobox_item == 'fiscal':
             fiscal_and_reg(spec_name, **registry_data)
