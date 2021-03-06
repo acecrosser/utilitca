@@ -1,6 +1,5 @@
 import openpyxl
 import os
-import requests
 
 data_type = {
     'complex': ['complex.xlsx', 'complex', 'H27'],
