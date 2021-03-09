@@ -11,6 +11,7 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from functions import data_path
 
 
 class Ui_mainWindow(object):
@@ -33,8 +34,8 @@ class Ui_mainWindow(object):
         if QIcon.hasThemeIcon(iconThemeName):
             icon = QIcon.fromTheme(iconThemeName)
         else:
-            icon.addFile(u"../util_ico.png", QSize(), QIcon.Normal, QIcon.Off)
-            icon.addFile(u"../util_ico.png", QSize(), QIcon.Normal, QIcon.On)
+            icon.addFile(f"{data_path}util_ico.png", QSize(), QIcon.Normal, QIcon.Off)
+            icon.addFile(f"{data_path}util_ico.png", QSize(), QIcon.Normal, QIcon.On)
         
         mainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(mainWindow)
