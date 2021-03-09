@@ -1,6 +1,5 @@
 import openpyxl
 import os
-import requests
 
 complex = 'Реестр выполненных работ (Комплексная настройка Контур.Маркета).xlsx'
 market = 'Реестр выполненных работ (Настройка Контур.Маркета).xlsx'
