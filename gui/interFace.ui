@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>393</width>
-    <height>610</height>
+    <height>625</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>393</width>
-    <height>610</height>
+    <height>625</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>393</width>
-    <height>610</height>
+    <height>625</height>
    </size>
   </property>
   <property name="font">
@@ -377,6 +377,19 @@
       <string>Печать заявки</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>600</y>
+      <width>271</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Прикрепить к письму заявку на оказание работ</string>
+    </property>
    </widget>
   </widget>
  </widget>

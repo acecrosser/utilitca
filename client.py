@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from PySide2 import QtWidgets
 from functions import complex_settings, fiscal_and_reg, request_for_work
-from functions import make_mail, data_type, data_path
+from functions import make_mail, data_type, data_path, fiscal_kkt, request, request_online
 from interFaceUtil import Ui_mainWindow
 
 
@@ -78,17 +78,18 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
 
         if combobox_item == 'fiscal':
             fiscal_and_reg(spec_name, **registry_data)
-            os.system(f'start excel.exe "{data_path}fiscal.xlsx"')
+            os.system(f'start excel.exe "{data_path}{fiscal_kkt}"')
         else:
             complex_settings(spec_name, data_type[combobox_item][0], *data_type[combobox_item], **registry_data)
             os.system(f'start excel.exe "{data_path}{data_type[combobox_item][0]}"')
 
     def make_request_report(self):
-        d_model_kkt = self.model_kkt.text()
-        d_serial_kkt = self.serial_kkt.text()
 
         combobox_item = self.make_data()['item']
         request_data = self.make_data()['request_data']
+
+        d_model_kkt = request_data['E13']
+        d_serial_kkt = request_data['E14']
 
         if combobox_item == 'update':
             request_data.pop('E13')
@@ -96,24 +97,41 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
             request_data.pop('E15')
             request_data.update({'E9': d_model_kkt})
             request_data.update({'E10': d_serial_kkt})
-            request_for_work('request_online.xlsx', **request_data)
-            os.system(f'start excel.exe "{data_path}request_online.xlsx"')
+            request_for_work(request_online, **request_data)
+            os.system(f'start excel.exe "{data_path}{request_online}"')
         else:
-            request_for_work('request.xlsx', **request_data)
-            os.system(f'start excel.exe "{data_path}request.xlsx"')
+            request_for_work(request, **request_data)
+            os.system(f'start excel.exe "{data_path}{request}"')
 
     def send_mail(self):
 
         combobox_item = self.make_data()['item']
         spec_name = self.make_data()['name']
         registry_data = self.make_data()['data']
+        request_data = self.make_data()['request_data']
 
-        if combobox_item == 'fiscal':
-            fiscal_and_reg(spec_name, **registry_data)
-            make_mail('fiscal.xlsx')
+        d_model_kkt = request_data['E13']
+        d_serial_kkt = request_data['E14']
+
+        if self.checkBox.isChecked():
+            if combobox_item == 'update':
+                request_data.pop('E13')
+                request_data.pop('E14')
+                request_data.pop('E15')
+                request_data.update({'E9': d_model_kkt})
+                request_data.update({'E10': d_serial_kkt})
+                request_for_work(request_online, **request_data)
+                make_mail(f'{request_online}')
+            else:
+                request_for_work(request, **request_data)
+                make_mail(f'{request}')
         else:
-            complex_settings(spec_name, data_type[combobox_item][0], *data_type[combobox_item], **registry_data)
-            make_mail(data_type[combobox_item][0])
+            if combobox_item == 'fiscal':
+                fiscal_and_reg(spec_name, **registry_data)
+                make_mail(f'{fiscal_kkt}')
+            else:
+                complex_settings(spec_name, data_type[combobox_item][0], *data_type[combobox_item], **registry_data)
+                make_mail(data_type[combobox_item][0])
 
 
 if __name__ == '__main__':

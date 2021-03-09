@@ -2,26 +2,38 @@ import openpyxl
 import os
 import requests
 
+complex = 'Реестр выполненных работ (Комплексная настройка Контур.Маркета).xlsx'
+market = 'Реестр выполненных работ (Настройка Контур.Маркета).xlsx'
+off_fn = 'Реестр выполненных работ (Перерегистрация ККТ без замены  ФН).xlsx'
+with_fn = 'Реестр выполненных работ (Перерегистрация ККТ с заменой  ФН).xlsx'
+update_kkt = 'Реестр выполненных работ (Прошивка ККТ).xlsx'
+fiscal_kkt = 'Реестр выполненных работ (Регистрация и фискализация одной единицы ККТ).xlsx'
+ssu_kkt = 'Реестр выполненных работ (Снятие с учета ККТ).xlsx'
+blank = 'Реестр выполненных работ (Пустой бланк).xlsx'
+request = 'Заявка на оказание работ по ККТ.xlsx'
+request_online = 'Заявка на оказание работ по обновлению ПО ККТ.xlsx'
+
+
 data_type = {
-    'complex': ['complex.xlsx', 'complex', 'H27'],
-    'market': ['market.xlsx', 'market', 'H25'],
-    'perereg_off_fn': ['perereg_off_fn.xlsx', 'perereg_off_fn', 'H23'],
-    'perereg_on_fn': ['perereg_on_fn.xlsx', 'perereg_on_fn', 'H23'],
-    'ssu': ['ssu.xlsx', 'ssu', 'H21'],
-    'update': ['update.xlsx', 'update', 'H24'],
-    'blank': ['blank.xlsx', 'blank', 'H23']
+    'complex': [complex, 'complex', 'H27'],
+    'market': [market, 'market', 'H25'],
+    'perereg_off_fn': [off_fn, 'perereg_off_fn', 'H23'],
+    'perereg_on_fn': [with_fn, 'perereg_on_fn', 'H23'],
+    'ssu': [ssu_kkt, 'ssu', 'H21'],
+    'update': [update_kkt, 'update', 'H24'],
+    'blank': [blank, 'blank', 'H23']
 }
 
 data_path = f'{os.path.abspath("")}' + '\\data\\'
 
 
 def fiscal_and_reg(spec_name, **kwargs):
-    open_file = openpyxl.load_workbook(f'{data_path}fiscal.xlsx')
+    open_file = openpyxl.load_workbook(f'{data_path}{fiscal_kkt}')
     data = open_file['fiscal']
     data['H24'] = spec_name
     for new in kwargs.items():
         data[new[0]] = new[1]
-    open_file.save(f'{data_path}fiscal.xlsx')
+    open_file.save(f'{data_path}{fiscal_kkt}')
 
 
 def complex_settings(spec_name, filename, *args, **kwargs):

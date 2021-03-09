@@ -11,21 +11,20 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from functions import data_path
 
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         if not mainWindow.objectName():
             mainWindow.setObjectName(u"mainWindow")
-        mainWindow.resize(393, 610)
+        mainWindow.resize(393, 625)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(mainWindow.sizePolicy().hasHeightForWidth())
         mainWindow.setSizePolicy(sizePolicy)
-        mainWindow.setMinimumSize(QSize(393, 610))
-        mainWindow.setMaximumSize(QSize(393, 610))
+        mainWindow.setMinimumSize(QSize(393, 625))
+        mainWindow.setMaximumSize(QSize(393, 625))
         font = QFont()
         font.setFamily(u"Arial")
         mainWindow.setFont(font)
@@ -34,8 +33,8 @@ class Ui_mainWindow(object):
         if QIcon.hasThemeIcon(iconThemeName):
             icon = QIcon.fromTheme(iconThemeName)
         else:
-            icon.addFile(f"{data_path}util_ico.png", QSize(), QIcon.Normal, QIcon.Off)
-            icon.addFile(f"{data_path}util_ico.png", QSize(), QIcon.Normal, QIcon.On)
+            icon.addFile(u"../util_ico.png", QSize(), QIcon.Normal, QIcon.Off)
+            icon.addFile(u"../util_ico.png", QSize(), QIcon.Normal, QIcon.On)
         
         mainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(mainWindow)
@@ -135,6 +134,9 @@ class Ui_mainWindow(object):
         self.printRequest = QPushButton(self.splitter)
         self.printRequest.setObjectName(u"printRequest")
         self.splitter.addWidget(self.printRequest)
+        self.checkBox = QCheckBox(self.centralwidget)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setGeometry(QRect(60, 600, 271, 17))
         mainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(mainWindow)
@@ -169,5 +171,6 @@ class Ui_mainWindow(object):
         self.printReestr.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0435\u0447\u0430\u0442\u044c \u0440\u0435\u0435\u0441\u0442\u0440\u0430", None))
         self.makeEmail.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0438\u0441\u044c\u043c\u043e", None))
         self.printRequest.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0435\u0447\u0430\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0438", None))
+        self.checkBox.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u0438\u0442\u044c \u043a \u043f\u0438\u0441\u044c\u043c\u0443 \u0437\u0430\u044f\u0432\u043a\u0443 \u043d\u0430 \u043e\u043a\u0430\u0437\u0430\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0442", None))
     # retranslateUi
 
