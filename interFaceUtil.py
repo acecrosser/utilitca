@@ -169,9 +169,9 @@ class Ui_mainWindow(object):
         self.label_inn.setText(QCoreApplication.translate("mainWindow", u"\u0418\u041d\u041d", None))
         self.label_bill.setText(QCoreApplication.translate("mainWindow", u"\u2116 \u0441\u0447\u0435\u0442\u0430", None))
         self.label_company.setText(QCoreApplication.translate("mainWindow", u"\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 ", None))
-        self.printReestr.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0435\u0447\u0430\u0442\u044c \u0440\u0435\u0435\u0441\u0442\u0440\u0430", None))
+        self.printReestr.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0440\u0435\u0435\u0441\u0442\u0440", None))
         self.makeEmail.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0438\u0441\u044c\u043c\u043e", None))
-        self.printRequest.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0435\u0447\u0430\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0438", None))
+        self.printRequest.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443", None))
         self.checkBox.setText(QCoreApplication.translate("mainWindow", u"\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u0438\u0442\u044c \u043a \u043f\u0438\u0441\u044c\u043c\u0443 \u0437\u0430\u044f\u0432\u043a\u0443 \u043d\u0430 \u043e\u043a\u0430\u0437\u0430\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0442", None))
     # retranslateUi
 

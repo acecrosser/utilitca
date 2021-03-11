@@ -364,7 +364,7 @@
     </property>
     <widget class="QPushButton" name="printReestr">
      <property name="text">
-      <string>Печать реестра</string>
+      <string>Создать реестр</string>
      </property>
     </widget>
     <widget class="QPushButton" name="makeEmail">
@@ -374,7 +374,7 @@
     </widget>
     <widget class="QPushButton" name="printRequest">
      <property name="text">
-      <string>Печать заявки</string>
+      <string>Создать заявку</string>
      </property>
     </widget>
    </widget>
