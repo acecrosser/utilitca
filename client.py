@@ -40,6 +40,7 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
         spec_name = self.spec_name.text()
 
         combobox_item = self.comboBox.currentData()
+        service_text = self.comboBox.currentText()
 
         registry_data = {
             'C1': datetime.now().strftime('%d.%m.%Y'),
@@ -58,6 +59,7 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
              'E1': f'{d_inn_company}-{d_kpp_company}',
              'E2': d_name_company,
              'E4': d_number_bill,
+             'E5': service_text,
              'E13': d_model_kkt,
              'E14': d_serial_kkt,
              'E15': d_serial_fn,
@@ -95,6 +97,7 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
             request_data.pop('E13')
             request_data.pop('E14')
             request_data.pop('E15')
+            request_data.pop('E5')
             request_data.update({'E9': d_model_kkt})
             request_data.update({'E10': d_serial_kkt})
             request_for_work(request_online, **request_data)
