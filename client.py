@@ -121,6 +121,7 @@ class ReportGroupApp(QtWidgets.QMainWindow, Ui_mainWindow):
                 request_data.pop('E13')
                 request_data.pop('E14')
                 request_data.pop('E15')
+                request_data.pop('E5')
                 request_data.update({'E9': d_model_kkt})
                 request_data.update({'E10': d_serial_kkt})
                 request_for_work(request_online, **request_data)
